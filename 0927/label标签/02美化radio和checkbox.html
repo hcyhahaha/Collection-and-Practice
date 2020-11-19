@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美化</title>
+    <style>
+        #input1 {
+            visibility: hidden;
+        }
+
+        /* .span1{
+            background-color: teal;
+            display: none;
+        } */
+    </style>
+</head>
+
+<body>
+    <label for="input1" class="aa">1
+        <input type="radio" id="input1">
+        <span class="span1" style="background-color: teal;">haha</span>
+    </label>
+    <label for="input2">2
+        <input type="radio" id="input2">
+    </label>
+    <label for="input3">3
+        <input type="radio" id="input3">
+    </label>
+
+</body>
+<script>
+    var aa = document.getElementsByClassName("aa")[0];
+    var span = document.getElementsByClassName("span1")[0];
+    console.log(span);
+    aa.addEventListener("click", function () {
+        span.style.backgroundColor = "red";
+    })
+</script>
+
+</html>

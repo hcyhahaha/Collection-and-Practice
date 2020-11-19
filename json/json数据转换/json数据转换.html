@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+    <!-- 
+        写一个方法转换json格式,将[{"plateColor":"2","areaName":"阳平高速(G65)","currentLocation":{"vno":"桂C19079","adr":"平乐县石灰窑,西北方向"},"count":0},{"plateColor":"2","areaName":"阳平高速(G65)","currentLocation":{"vno":"桂C87259","adr":"阳朔县阳朔斗牛城,南方向"},"count":0}]
+转为[{"areaName":"阳平高速(G65)","adr":"平乐县石灰窑,西北方向"},{"areaName":"阳平高速(G65)","adr":"阳朔县阳朔斗牛城,南方向"}]
+     -->
+</head>
+
+<body>
+    <script>
+        // let data = [
+        //     {
+        //         "plateColor": "2",
+        //         "areaName": "阳平高速(G65)",
+        //         "currentLocation": {
+        //             "vno": "桂C19079",
+        //             "adr": "平乐县石灰窑,西北方向"
+        //         },
+        //         "count": 0
+        //     },
+        //     {
+        //         "plateColor": "2",
+        //         "areaName": "阳平高速(G65)",
+        //         "currentLocation": {
+        //             "vno": "桂C87259",
+        //             "adr": "阳朔县阳朔斗牛城,南方向"
+        //         },
+        //         "count": 0
+        //     }
+        // ]
+        let str = '[{"plateColor":"2","areaName":"阳平高速(G65)","currentLocation":{"vno":"桂C19079","adr":"平乐县石灰窑,西北方向"},"count":0},{"plateColor":"2","areaName":"阳平高速(G65)","currentLocation":{"vno":"桂C87259","adr":"阳朔县阳朔斗牛城,南方向"},"count":0}]'
+        function fn(str) {
+            let data = JSON.parse(str);
+            let res = [];
+            for (let i = 0; i < data.length; i++) {
+                res.push({ "areaName": data[i].areaName, "adr": data[i].currentLocation.adr })
+            }
+            return JSON.stringify(res);
+        }
+        console.log(fn(str));
+
+    </script>
+</body>
+
+</html>

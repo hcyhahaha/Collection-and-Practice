@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防抖</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 2000px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        // 防抖
+        function debounce(fn, delay) {
+            var timer = null;
+            return function () {
+                if (timer) {
+                    clearTimeout(timer);
+                }
+                timer = setTimeout(fn, delay)
+            }
+        }
+
+
+        function fn() {
+            var top = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset;
+            console.log(top);
+        }
+
+        window.onscroll = debounce(fn, 1000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>捕获</title>
+    <style>
+        #one {
+            width: 200px;
+            height: 200px;
+            background-color: rosybrown;
+        }
+
+        #two {
+            width: 150px;
+            height: 150px;
+            background-color: orangered;
+        }
+
+        #three {
+            width: 100px;
+            height: 100px;
+            background-color: royalblue;
+        }
+
+        #four {
+            width: 50px;
+            height: 50px;
+            background-color: darkolivegreen;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        捕获则和冒泡相反，目标元素被触发后，会从目标元素的最顶层的祖先元素事件往下执行到目标元素为止。
+
+        将上面的代码第三个参数均改为true，则执行结果如下：
+
+        点击one，输出one；
+
+        点击two，输出one two；
+
+        点击three，输出one two three；
+
+        点击four，输出one two three four；
+
+        很明显执行顺序是不同的。
+     -->
+    <div id='one'>1
+        <div id='two'>2
+            <div id='three'>3
+                <div id='four'>4
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type='text/javascript'>
+        var one = document.getElementById('one');
+        var two = document.getElementById('two');
+        var three = document.getElementById('three');
+        var four = document.getElementById('four');
+        one.addEventListener('click', function () {
+            alert('one');
+        }, true);
+        two.addEventListener('click', function () {
+            alert('two');
+        }, true);
+        three.addEventListener('click', function () {
+            alert('three');
+        }, true);
+        four.addEventListener('click', function () {
+            alert('four');
+        }, true);
+    </script>
+</body>
+
+</html>

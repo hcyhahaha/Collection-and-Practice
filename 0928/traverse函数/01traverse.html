@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>traverse</title>
+    <style>
+        .one {
+            width: 60px;
+            height: 60px;
+            margin: 5px 10px;
+            background-color: teal;
+        }
+
+        .two {
+            width: 60px;
+            height: 60px;
+            margin: 5px 10px;
+            background-color: teal;
+        }
+
+        .three {
+            width: 60px;
+            height: 60px;
+            margin: 5px 10px;
+            background-color: teal;
+        }
+
+        .four {
+            width: 60px;
+            height: 60px;
+            margin: 5px 10px;
+            background-color: teal;
+        }
+
+        .five {
+            width: 40px;
+            height: 40px;
+            margin: 5px 10px;
+            background-color: teal;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        写个 traverse 函数，输出页面所有宽高都大于 50px 的节 点。
+     -->
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+    <div class="four"></div>
+    <div class="five"></div>
+
+    <script>
+        function traverse() {
+
+            var arr = [];
+            var elements = [];
+            console.log(document.all);
+            if (document.all) {
+                elements = document.all;
+                console.log(elements);
+
+            } else {
+
+                elements = document.getElementsByTagName("*");
+                console.log(elements);
+            }
+
+            for (var i = 0; i < elements.length; i++) {
+                var ele = elements[i];
+
+                //width 返回的是字符串 offsetWidth 返回的是带边框的 Number 型的数字
+                var width = parseFloat(ele.style.width) || ele.offsetWidth;
+                var height = parseFloat(ele.style.height) || ele.offsetHeight;
+
+                if (width > 50 && height > 50) {
+                    arr.push(elements[i].tagName);
+                }
+
+            }
+
+            return arr;
+
+        }
+        window.onload = function () { //注意 onload 的使用方式
+
+            console.log(traverse());
+
+        }
+    </script>
+</body>
+
+</html>

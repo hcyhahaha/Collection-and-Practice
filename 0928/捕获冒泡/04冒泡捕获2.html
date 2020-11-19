@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冒泡捕获2</title>
+    <style>
+        #one {
+            width: 200px;
+            height: 200px;
+            background-color: rosybrown;
+        }
+
+        #two {
+            width: 150px;
+            height: 150px;
+            background-color: orangered;
+        }
+
+        #three {
+            width: 100px;
+            height: 100px;
+            background-color: royalblue;
+        }
+
+        #four {
+            width: 50px;
+            height: 50px;
+            background-color: darkolivegreen;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        two元素绑定了两个不同事件，点击two都会执行这两个事件。而执行顺序有所差异
+
+        1、如果two为目标元素，目标元素的事情按顺序执行，而其他元素根据W3C的标准执行，即先捕获后冒泡。
+        点击two执行结果：1---捕获(因为是two的父元素支持捕获事件所以先执行)  2---冒泡  2---捕获
+
+        2、如果目标元素不是two，则two的两个事件按先捕获后冒泡触发执行，也就是跟前面讨论的执行过程是一样的，只不过两个事件都绑定在同一个DOM元素上。
+        点击three执行结果：1---捕获 2---捕获 3---捕获 2---冒泡
+     -->
+    <div id='one'>1
+        <div id='two'>2
+            <div id='three'>3
+                <div id='four'>4
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //捕获true 父->子
+        //冒泡false 子->父
+        one.addEventListener('click', function () {
+            console.log('1---捕获');
+        }, true);
+        two.addEventListener('click', function () {
+            console.log('2---冒泡');
+        }, false);
+        two.addEventListener('click', function () {
+            console.log('2---捕获');
+        }, true);
+        three.addEventListener('click', function () {
+            console.log('3---捕获');
+        }, true);
+        four.addEventListener('click', function () {
+            console.log('4---捕获');
+        }, true);
+    </script>
+</body>
+
+</html>

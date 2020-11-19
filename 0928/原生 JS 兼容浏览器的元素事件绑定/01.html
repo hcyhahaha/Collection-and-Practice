@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原生 JS 兼容浏览器的元素事件绑定</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: rosybrown;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // 原生 JS 兼容浏览器的元素事件绑定
+        function addEvent(el, ename, fn) {
+            if (el.addEventListener) {
+                el.addEventListener(ename, fn);
+            } else if (el.attachEvent) {
+                el.attachEvent("on" + ename, fn);
+            } else {
+                el["on" + ename] = fn;
+            }
+        }
+
+
+        
+        window.onload = function () {
+            var div = document.getElementsByTagName("div")[0];
+            function fn() {
+                console.log(666);
+            }
+            addEvent(div, "click", fn)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>颜色随机</title>
+    <style>
+        div {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            background-color: #233f44;
+            /* border: 1px solid red; */
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="change()">切换</button>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <script>
+        function change() {
+            var divArr = document.getElementsByTagName("div");
+            console.log(divArr[0].style);
+            for (let i = 0; i < divArr.length; i++) {
+
+                var random = (~~(Math.random() * (1 << 24))).toString(16);
+                console.log(~~(Math.random() * (1 << 24)) + "=====" + random);
+
+                var str = random.split("");
+                // console.log(str);
+                if (str.length < 6) {
+                    console.log(666);
+                    divArr[i].style.backgroundColor = `#${random}8`;
+                }
+                // divArr[i].style.border = `1px solid #${random}`;
+                divArr[i].style.backgroundColor = `#${random}`;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冒泡捕获</title>
+    <style>
+        #one {
+            width: 200px;
+            height: 200px;
+            background-color: rosybrown;
+        }
+
+        #two {
+            width: 150px;
+            height: 150px;
+            background-color: orangered;
+        }
+
+        #three {
+            width: 100px;
+            height: 100px;
+            background-color: royalblue;
+        }
+
+        #four {
+            width: 50px;
+            height: 50px;
+            background-color: darkolivegreen;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        此时点击four元素，four元素为目标元素，one为根元素祖先，从one开始向下判断执行。
+
+        one为捕获事件，输出one；           
+        two为冒泡事件，忽略；
+        three为捕获时间，输出three；
+
+        four为目标元素，开始向上冒泡执行，输出four；（从此处分为两部分理解较容易。）
+
+        three为捕获已执行，忽略;
+        two为冒泡事件，输出two；
+        one为捕获已执行，忽略。
+
+        最终执行结果为：one three four two
+     -->
+    <div id='one'>1
+        <div id='two'>2
+            <div id='three'>3
+                <div id='four'>4
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //捕获true 父->子
+        //冒泡false 子->父
+        one.addEventListener('click', function () {
+            console.log('one');
+        }, true);
+        two.addEventListener('click', function () {
+            console.log('two');
+        }, false);
+        three.addEventListener('click', function () {
+            console.log('three');
+        }, true);
+        four.addEventListener('click', function () {
+            console.log('four');
+        }, false);
+    </script>
+</body>
+
+</html>

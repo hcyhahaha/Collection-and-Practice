@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过渡</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: tomato;
+            /* 平滑过渡 */
+            transition: all .5s ease-in .1s;
+        }
+        .box:hover {
+            border-radius: 50%;
+            /* 旋转 */
+            transform: rotate(180deg);
+            background-color: teal;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

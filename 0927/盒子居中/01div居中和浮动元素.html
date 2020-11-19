@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>div居中</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background-color: orangered;
+        }
+
+        /* 浮动元素的上下左右居中 */
+        .box2 {
+            width: 600px;
+            height: 400px;
+            background-color: paleturquoise;
+
+            position: relative;
+        }
+
+        /* 浮动元素的上下左右居中 */
+        .box2 div {
+            width: 200px;
+            height: 300px;
+            background-color: purple;
+
+            float: left;
+            position: absolute;/*绝对定位 相较于父元素*/
+            left: 50%;
+            top: 50%;
+            margin: -150px 0 0 -100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">盒子居中</div>
+    <div class="box2">浮动元素的上下左右居中
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绝对定位的左右居中</title>
+    <style>
+        .outer {
+            width: 500px;
+            height: 500px;
+            background-color: saddlebrown;
+            position: relative;
+        }
+        .inner {
+            width: 180px;
+            height: 100px;
+            background-color: seagreen;
+
+            position: absolute;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">绝对定位的左右居中</div>
+    </div>
+</body>
+</html>

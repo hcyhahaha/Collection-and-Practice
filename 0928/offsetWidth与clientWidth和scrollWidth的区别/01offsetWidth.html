@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offsetWidth</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 200px;
+
+            padding: 10px;
+            margin: 12px;
+            background-color: cadetblue;
+
+            /* overflow: scroll; */
+        }
+
+        .inner {
+            width: 800px;
+            height: 300px;
+
+            padding: 10px;
+            margin: 12px;
+            border: 5px solid red;
+            background-color: rosybrown;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="inner"></div>
+    </div>
+    <script>
+        var box = document.getElementsByClassName("box")[0];
+        console.log("offsetWidth", box.offsetWidth);
+        console.log("clientWidth", box.clientWidth);
+        console.log("scrollWidth", box.scrollWidth);
+    </script>
+</body>
+
+</html>

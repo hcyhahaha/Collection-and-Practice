@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = [
+            { time: 1 },
+            { time: 5 },
+            { time: 8 },
+            { time: 11 },
+            { time: 16 },
+            { time: 17 },
+            { time: 29 },
+            { time: 34 },
+            { time: 39 },
+        ]
+        let time_line = [1, 3, 7, 12, 17, 19, 31];
+
+        let re = []
+        for (let i = 0; i < time_line.length; i++) {
+            const curr = time_line[i];
+            let min = a[0].time; // 假设最近的是第一个值
+            for (let j = 1; j < a.length; j++) {
+                const ele = a[j].time; // 循环取值
+                if (Math.abs(curr - min) >= Math.abs(curr - ele)) {
+                    min = ele;
+                } else {
+                    // a.splice(j-1,1);
+                    break;
+                }
+            }
+
+            re.push({ line: curr, time: min });
+
+        }
+
+        console.log(re);
+        console.log(a);
+    </script>
+</body>
+
+</html>

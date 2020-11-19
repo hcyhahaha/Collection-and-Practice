@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动</title>
+    <style>
+        .father {
+            width: 300px;
+            height: 100px;
+            background-color: violet;
+        }
+        /* 清除浮动 */
+        .father ::after {
+            display: block;
+            clear: both;
+            content: "";
+            visibility: hidden;
+            /* height: 0; */
+        }
+        .father {
+            zoom: 1;
+        }
+        .mother {
+            width: 400px;
+            height: 400px;
+            background-color: yellow;
+        }
+        .father div {
+            /* 浮动的框可以向左或向右移动，直到他的外边缘碰到包含框或另一个浮动框的边框为止。 */
+            /* 浮动的块框会漂浮在文档普通流的块框上。 */
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+        .father span {
+            background-color: grey;
+        }
+        .mother div {
+            float: right;
+            width: 100px;
+            height: 100px;
+            background-color: firebrick;
+        }
+        .mother .clear {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <span>我是同级非浮动元素-top1</span>
+        <span>我是同级非浮动元素-top2</span>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <span>我是同级非浮动元素</span>
+        <span>我是同级非浮动元素2</span>
+        <span>我是同级非浮动元素3</span>
+    </div>
+    <div class="mother">
+        <div>1.2</div>
+        <div>2.2</div>
+        <div>3.2</div>
+        <div>4.2</div>
+        <div>5.2</div>
+        <div>6.2</div>
+        <div>7.2</div>
+        <div class="clear"></div>
+        <span>哈哈哈</span>
+    </div>
+</body>
+</html>

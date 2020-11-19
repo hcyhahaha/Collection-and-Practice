@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组翻转与复制</title>
+</head>
+
+<body>
+    <script>
+        function fn() {
+            /*
+            原数组：[1,2,3,4]
+            结果：[1,2,3,4,4,3,2,1]
+            */
+            // let arr = [1, 2, 3, 4]
+            let arrcopy = arr.slice(0);// 数组深拷贝 [1, 2, 3, 4]
+            /*使用reverse会改变原数组，所以用slice拷贝一份*/
+            let farr = arr.reverse();// 数组翻转 [4, 3, 2, 1]
+            let res = arrcopy.concat(farr)
+            return res;
+        }
+
+        Array.prototype.copyer = function () {
+            /*
+            原数组：[1,2,3,4]
+            结果：[1,2,3,4,4,3,2,1]
+            */
+            // let arr = [1, 2, 3, 4]
+            let arrcopy = this.slice(0);// 数组深拷贝 [1, 2, 3, 4]
+            /*使用reverse会改变原数组，所以用slice拷贝一份*/
+            let farr = this.reverse();// 数组翻转 [4, 3, 2, 1]
+            let res = arrcopy.concat(farr)
+            return res;
+        }
+        let arr1 = [1, 2, 3, 4, 8, 0]
+        console.log(arr1.copyer());// [1, 2, 3, 4, 8, 0, 0, 8, 4, 3, 2, 1]
+    </script>
+</body>
+
+</html>

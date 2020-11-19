@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取元素的宽度和高度</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .fu {
+            width: 400px;
+            height: 700px;
+            background-color: tomato;
+
+            position: relative;
+            top: 20px;
+            left: 50px;
+        }
+
+        .zi {
+            width: 300px;
+            height: 600px;
+            background-color: teal;
+            border: 10px solid red;
+            margin: 10px 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fu">
+        <div class="zi"></div>
+    </div>
+
+    <script>
+        var fu = document.querySelector(".fu");
+        var zi = document.querySelector(".zi");
+        function get(e) {
+            // 获取html元素对象的上边框的宽度。
+            var top = document.documentElement.clientTop;
+            // 获取html元素对象的左边框的宽度。
+            var left = document.documentElement.clientLeft;
+          
+            var ele = e.getBoundingClientRect();
+            console.log(top, left, ele);
+
+            return {
+                top: ele.top - top,
+                right: ele.right - left,
+                bottom: ele.bottom - top,
+                left: ele.left - left,
+                width: ele.right - ele.left,
+                height: ele.bottom - ele.top,
+                msg:"哈哈"
+            }
+        }
+        console.log(get(fu));
+    </script>
+</body>
+
+</html>

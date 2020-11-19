@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首字母大写</title>
+</head>
+
+<body>
+    <script>
+        function fn(str) {
+            // let str = "tHis Is a pEn";
+            let lower = str.toLowerCase();//转为小写 this is a pen
+            let strarr = lower.split(" ");// 按空格将字符串分割为字符数组 ["this", "is", "a", "pen"]
+            let nerArr = strarr.map((item) => {
+                return (item.slice(0, 1).toUpperCase() + item.slice(1).toLowerCase());
+                // ["This", "Is", "A", "Pen"]
+            })
+            let res = nerArr.join(" ");// 以空格的形式拼接，将数组转为字符串
+            return res;
+        }
+        let str = "yes i do";
+        console.log(fn(str));// Yes I Do
+
+    </script>
+</body>
+
+</html>

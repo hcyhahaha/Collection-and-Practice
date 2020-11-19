@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解析url</title>
+</head>
+
+<body>
+    <button onclick="fn()">解析</button>
+
+    <script>
+        function fn(params) {
+            var url = "https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fr=&sf=1&fmq=1567133149621_R&pv=&ic=0&nc=1&z=0&hd=0&latest=0&copyright=0&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&sid=&word=%E5%A3%81%E7%BA%B8";
+            var arg1 = url.split("?");
+            console.log(arg1);
+            var arg2 = arg1[1].split("&");
+            console.log(arg2);
+            var obj = {};
+
+            var res = arg2.map((el,index) => {
+                var arg3 = el.split("=");
+                obj[arg3[0]] = arg3[1]
+            })
+            console.log(obj);
+        }
+    </script>
+</body>
+
+</html>
